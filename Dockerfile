@@ -7,6 +7,7 @@ USER root
 
 RUN apt-get update -qy \
  && apt-get install -qy \
+      tzdata \
       build-essential \
       libcurl4-openssl-dev \
       libmysqlclient-dev \
