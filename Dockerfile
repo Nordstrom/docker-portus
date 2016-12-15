@@ -7,7 +7,6 @@ USER root
 
 RUN apt-get update -qy \
  && apt-get install -qy \
-      tzdata \
       build-essential \
       libcurl4-openssl-dev \
       libmysqlclient-dev \
@@ -27,6 +26,7 @@ RUN curl -Lo /tmp/portus.tgz https://github.com/SUSE/Portus/archive/${PORTUS_VER
 
 WORKDIR /portus
 
+RUN echo "gem 'tzinfo-data'" >> /portus/Gemfile
 RUN bundle install --verbose --retry=3 --no-cache --clean --path=/portus/.bundle
 
 ENTRYPOINT ["bundle", "exec", "puma"]
