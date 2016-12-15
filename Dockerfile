@@ -8,7 +8,10 @@ USER root
 RUN apt-get update -qy \
  && apt-get install -qy \
       build-essential \
-      libmysqlclient-dev
+      libcurl4-openssl-dev \
+      libmysqlclient-dev \
+      nodejs \
+      npm
 
 RUN mkdir /portus \
  && chown ubuntu:ubuntu /portus \

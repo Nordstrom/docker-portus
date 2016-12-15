@@ -1,7 +1,7 @@
 image_repo := quay.io/nordstrom
 image_name := portus
 portus_version := 2.1.1
-image_version := $(portus_version)-1
+image_version := $(portus_version)-3
 
 build_args := --build-arg=PORTUS_VERSION=$(portus_version)
 
