@@ -1,4 +1,4 @@
-FROM quay.io/nordstrom/ruby:2.3-1
+FROM quay.io/nordstrom/ruby:2.3-2
 MAINTAINER Nordstrom Kubernetes Platform Team "techk8s@nordstrom.com"
 
 ARG PORTUS_VERSION=2.1.1
@@ -14,10 +14,7 @@ RUN apt-get update -qy \
       npm
 
 RUN mkdir /portus \
- && chown ubuntu:ubuntu /portus \
- && gem update --system \
- && gem install --no-rdoc --no-ri \
-      bundler
+ && chown ubuntu:ubuntu /portus
 
 USER ubuntu
 
