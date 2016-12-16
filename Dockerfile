@@ -16,6 +16,10 @@ RUN apt-get update -qy \
 RUN mkdir /portus \
  && chown ubuntu:ubuntu /portus
 
+ADD NordstromRootCA.pem /usr/local/share/ca-certificates/NordstromRootCA.crt
+ADD NordstromRootPKI.pem /usr/local/share/ca-certificates/NordstromRootPKI.crt
+RUN update-ca-certificates
+
 USER ubuntu
 
 RUN curl -Lo /tmp/portus.tgz https://github.com/SUSE/Portus/archive/${PORTUS_VERSION}.tar.gz \
